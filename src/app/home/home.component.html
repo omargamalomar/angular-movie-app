@@ -1,0 +1,89 @@
+
+<header class="d-flex align-items-end header">
+  <div class="container-fluid " >
+    <owl-carousel-o [options]="customOptions" *ngIf="getMovies.length > 0; else loadingTemplate" >
+      <ng-container *ngFor="let movie of getMovies">
+        <ng-template carouselSlide [id]="movie.id">
+          <img class="w-100" [src]="haveImg + movie.poster_path" alt="" />
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</header>
+<div class="container">
+<div *ngIf="getMovies.length > 0; else loadingTemplate" class="row mt-5">
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+    <div >
+      <div class="brdr mb-4 w-25 "></div>
+      <h2>
+        Trinding Movies <br />
+        Watch Now
+      </h2>
+      <p class="text-secondary">Most Watched Movies By Day</p>
+      <div class="brdr mt-4 w-100"></div>
+    </div>
+  </div>
+  <div *ngFor="let movie of getMovies" class="col-md-2">
+    <div class="movie m-2 ">
+      <a
+        [routerLink]="['/movieDetails', movie.id, movie.media_type]"
+        class="nav-link"
+      >
+      <div class="done ">
+        <img class="" [src]="haveImg + movie.poster_path" alt="" />
+      </div>
+        <h3 class="h6 text-center mt-2">{{ movie.title }}</h3>
+      </a>
+    </div>
+  </div>
+  <div class="shadow"></div>
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+    <div class="mar">
+      <div class="brdr mb-4 w-25"></div>
+      <h2>
+        Trinding TV <br />
+        Watch Now
+      </h2>
+      <p class="text-secondary">Most Watched TVs By Day</p>
+      <div class="brdr mt-4 w-100"></div>
+    </div>
+  </div>
+  <div *ngFor="let tv of getTV" class="col-md-2">
+    <div class="movie m-2 ">
+      <a
+        [routerLink]="['/movieDetails', tv.id, tv.media_type]"
+        class="nav-link"
+      >
+      <div class="done">
+        <img class="" [src]="haveImg + tv.poster_path" alt="" />
+      </div>
+        <h3 class="h6 text-center mt-2">{{ tv.name }}</h3>
+      </a>
+    </div>
+  </div>
+  <div class="shadow"></div>
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+    <div class="mar">
+      <div class="brdr mb-4 w-25"></div>
+      <h2>People <br /></h2>
+      <p class="text-secondary">Most People</p>
+      <div class="brdr mt-4 w-100"></div>
+    </div>
+  </div>
+  <div *ngFor="let person of getPeople" class="col-md-2">
+    <div class="movie m-2">
+      <div class="done">
+        <img class="" [src]="person.profile_path" alt="" />
+      </div>
+      <h3 class="h6 text-center mt-2">{{ person.name }}</h3>
+    </div>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <h1
+    class="text-center text-white py-2 d-flex align-items-center justify-content-center"
+  >
+    <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+  </h1>
+</ng-template>
+</div>

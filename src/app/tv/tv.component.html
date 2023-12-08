@@ -1,0 +1,56 @@
+<div class="container">
+<div *ngIf="getTV.length > 0; else loadingTemplate" class="row mt-5">
+  <div class="col-md-12 py-5 search">
+    <input type="text" [(ngModel)]="trem" placeholder="search" class=" w-25 bg-transparent">
+  </div>
+  <div class="col-md-4 d-flex align-items-center">
+    <div>
+      <div class="brdr mb-4 w-25"></div>
+      <h2>
+        Trinding TV <br />
+        Watch Now
+      </h2>
+      <p class="text-secondary">Most Watched TVs By Day</p>
+      <div class="brdr mt-4 w-100"></div>
+    </div>
+  </div>
+  <div *ngFor="let tv of getTV | tvSerch: trem" class="col-md-2">
+    <div class="movie m-2">
+      <a [routerLink]="['/movieDetails', tv.id, tv.media_type ||'tv']" class="nav-link">
+        <img class="w-100" [src]="haveImg + tv.poster_path" alt="" />
+        <h3 class="h6 text-center mt-2">{{ tv.name }}</h3>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <nav aria-label="...">
+    <ul
+      class="pagination pagination-sm justify-content-center align-items-center py-5 d-flex"
+    >
+    <li class="page-item">
+      <button [disabled]="pages[0] == 1" (click)="less()" class="dis">
+        <a class="page-link bg-transparent"><<</a>
+      </button>
+    </li>
+      <li (click)="test(page)" *ngFor="let page of pages" class="page-item cursoro">
+        <a routerLinkActive="active" class="page-link bg-transparent">{{
+          page
+        }}</a>
+      </li>
+      <li class="page-item">
+        <button (click)="gray()" class=" dis">
+          <a class="page-link bg-transparent">>></a>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
+<ng-template #loadingTemplate>
+  <h1
+    class="text-center text-white py-2 d-flex align-items-center justify-content-center"
+  >
+    <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+  </h1>
+</ng-template>
+</div>

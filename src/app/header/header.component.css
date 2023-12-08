@@ -1,0 +1,10 @@
+.navbar{
+    box-shadow: 0 0 8px 6px #050810;
+    position: sticky;
+    top: 0;
+    background-color:   #0b1120;
+    z-index: 20;
+}
+.cursorer{
+    cursor: pointer;
+}

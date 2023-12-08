@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="row ">
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+    <div class="col-md-12">
+      <p class="text-dark">
+        {{ registerGroup.get("last_name")?.getError("minLength") }}
+      </p>
+      <div class="w-75 mx-auto">
+        <h2 class="mb-3">Resgiter</h2>
+        <form (ngSubmit)="submitRegisterForm(registerGroup)" [formGroup]="registerGroup" id="">
+          <div class="mb-3">
+            <label for="frist_name" class="mb-2">Frist Name</label>
+            <input
+              class="form-control"
+              id="frist_name"
+              formControlName="frist_name"
+            />
+            <div
+              *ngIf="
+                registerGroup.get('frist_name')?.errors &&
+                registerGroup.get('frist_name')?.touched
+              "
+            >
+              <p
+                *ngIf="registerGroup.get('frist_name')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                frist name is required
+              </p>
+              <p
+                *ngIf="registerGroup.get('frist_name')?.getError('minLength')"
+                class="py-1 alert alert-danger"
+              >
+                maxLength is 8
+              </p>
+              <p
+                *ngIf="registerGroup.get('frist_name')?.getError('maxLength')"
+                class="py-1 alert alert-danger"
+              >
+                minLength is 4
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="last_name" class="mb-2">Last Name</label>
+            <input
+              class="form-control"
+              id="last_name"
+              formControlName="last_name"
+            />
+            <div
+              *ngIf="
+                registerGroup.get('last_name')?.errors &&
+                registerGroup.get('last_name')?.touched
+              "
+            >
+              <p
+                *ngIf="registerGroup.get('last_name')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                last name is required
+              </p>
+              <p
+                *ngIf="registerGroup.get('last_name')?.getError('minLength')"
+                class="py-1 alert alert-danger"
+              >
+                maxLength is 8
+              </p>
+              <p
+                *ngIf="registerGroup.get('last_name')?.getError('maxLength')"
+                class="py-1 alert alert-danger"
+              >
+                minLength is 4
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="mb-2">Age</label>
+            <input
+              class="form-control"
+              id="age"
+              formControlName="age"
+							type="number"
+            />
+            <div
+              *ngIf="
+                registerGroup.get('age')?.errors &&
+                registerGroup.get('age')?.touched
+              "
+            >
+              <p
+                *ngIf="registerGroup.get('age')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                Age is required
+              </p>
+              <p
+                *ngIf="registerGroup.get('age')?.getError('min')"
+                class="py-1 alert alert-danger"
+              >
+                maxLength is 8
+              </p>
+              <p
+                *ngIf="registerGroup.get('age')?.getError('max')"
+                class="py-1 alert alert-danger"
+              >
+                minLength is 4
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="mb-2">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              formControlName="email"
+							type="email"
+            />
+            <div
+              *ngIf="
+                registerGroup.get('email')?.errors &&
+                registerGroup.get('email')?.touched
+              "
+            >
+              <p
+                *ngIf="registerGroup.get('email')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                email is required
+              </p>
+              <p
+                *ngIf="registerGroup.get('email')?.getError('email')"
+                class="py-1 alert alert-danger"
+              >
+                invalid email
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="mb-2">Password</label>
+            <input
+              class="form-control"
+              id="password"
+              formControlName="password"
+							type="password"
+            />
+            <div
+              *ngIf="
+                registerGroup.get('password')?.errors &&
+                registerGroup.get('password')?.touched
+              "
+            >
+              <p
+                *ngIf="registerGroup.get('password')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                Password is required
+              </p>
+              <p
+                *ngIf="registerGroup.get('password')?.getError('pattern')"
+                class="py-1 alert alert-danger"
+              >
+                invalid password
+              </p>
+            </div>
+          </div>
+          <button type="submit" [disabled]="registerGroup.invalid" class="btn btn-primary mb-3">
+            <span *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin"></i></span>
+            <span *ngIf="!isLoading">Register</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

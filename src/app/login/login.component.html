@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div class="col-md-12 vh-100">
+      <p class="text-dark">
+        {{ loginForm.get("last_name")?.getError("minLength") }}
+      </p>
+      <div class="w-75 mx-auto">
+        <h2 class="mb-3 text-center">Login</h2>
+        <form
+          (ngSubmit)="submitRegisterForm(loginForm)"
+          [formGroup]="loginForm"
+          id=""
+        >
+          <div class="mb-3">
+            <label for="email" class="mb-2">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              formControlName="email"
+              type="email"
+            />
+            <div
+              *ngIf="
+                loginForm.get('email')?.errors &&
+                loginForm.get('email')?.touched
+              "
+            >
+              <p
+                *ngIf="loginForm.get('email')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                email is required
+              </p>
+              <p
+                *ngIf="loginForm.get('email')?.getError('email')"
+                class="py-1 alert alert-danger"
+              >
+                invalid email
+              </p>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="mb-2">Password</label>
+            <input
+              class="form-control"
+              id="password"
+              formControlName="password"
+              type="password"
+            />
+            <div
+              *ngIf="
+                loginForm.get('password')?.errors &&
+                loginForm.get('password')?.touched
+              "
+            >
+              <p
+                *ngIf="loginForm.get('password')?.getError('required')"
+                class="py-1 alert alert-danger"
+              >
+                Password is required
+              </p>
+              <p
+                *ngIf="loginForm.get('password')?.getError('pattern')"
+                class="py-1 alert alert-danger"
+              >
+                invalid password
+              </p>
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn btn-primary mb-3"
+          >
+            <span *ngIf="isLoading"
+              ><i class="fa-solid fa-spinner fa-spin"></i
+            ></span>
+            <span *ngIf="!isLoading">Login</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
