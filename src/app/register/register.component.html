@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row ">
+  <div class="row">
     <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
     <div class="col-md-12">
       <p class="text-dark">
         {{ registerGroup.get("last_name")?.getError("minLength") }}
       </p>
       <div class="w-75 mx-auto">
-        <h2 class="mb-3">Resgiter</h2>
-        <form (ngSubmit)="submitRegisterForm(registerGroup)" [formGroup]="registerGroup" id="">
+        <h2 class="mb-3 ms-5">Resgiter</h2>
+        <form (ngSubmit)="submitRegisterForm(registerGroup)" [formGroup]="registerGroup" id="" >
           <div class="mb-3">
             <label for="frist_name" class="mb-2">Frist Name</label>
             <input

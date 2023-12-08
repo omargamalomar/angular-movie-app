@@ -32,7 +32,7 @@ export class HomeComponent {
         items: 8,
       },
       940: {
-        items: 8,
+        items: 8 ,
       },
     },
     nav: true,
