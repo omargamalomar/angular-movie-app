@@ -1,0 +1,35 @@
+.search{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+.search input::placeholder{
+    color: #a9a5a5;
+    padding: 10px;
+}
+.search input{
+    box-shadow: 0 0 2px 1px rgba(35, 1, 1, 0.38);
+    color: #fff;
+    outline: none;
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+      linear-gradient(
+        to bottom, 
+        red, 
+        rgba(0, 0, 0, 0)
+      ) 7 100%;
+    height: 40px;
+    transition: .3s;
+}
+.search input:focus{
+    box-shadow: 0 0 6px 2px #64011b;
+}
+.dis{
+  border: 0;
+  background: transparent;
+}
+.cursoro{
+  cursor: pointer;
+}

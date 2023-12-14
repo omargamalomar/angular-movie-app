@@ -1,0 +1,25 @@
+<div class="container">
+<div *ngIf="getPeople.length > 0; else loadingTemplate" class="row mt-5">
+  <div class="col-md-4 d-flex align-items-center">
+    <div>
+      <div class="brdr mb-4 w-25"></div>
+      <h2>People <br /></h2>
+      <p class="text-secondary">Most People</p>
+      <div class="brdr mt-4 w-100"></div>
+    </div>
+  </div>
+  <div *ngFor="let person of getPeople" class="col-md-2">
+    <div class="movie m-2">
+      <img class="w-100" [src]="person.profile_path" alt="" />
+      <h3 class="h6 text-center mt-2">{{ person.name }}</h3>
+    </div>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <h1
+    class="text-center text-white py-2 d-flex align-items-center justify-content-center"
+  >
+    <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+  </h1>
+</ng-template>
+</div>

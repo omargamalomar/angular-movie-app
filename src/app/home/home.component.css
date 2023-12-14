@@ -1,0 +1,42 @@
+img{
+    border: 2px solid #000;
+}
+.brdr{
+    height: 1px;
+    background-color: #949cb0;
+}
+header{
+    background-image: url('../../assets/images/mo6.jpg');
+    background-size: cover;
+}
+.container .row img{
+    width: 100%;
+}
+header{
+    height: 100vh
+}
+@media (max-width:767px) {
+    header{
+        height: 30vh;
+    }
+    .container .row img{
+        width: 60%;
+    }
+    .done{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .brdr{
+        display: none;
+    }
+    .mar{
+        margin-top: 50px;
+        padding-top: 50px;
+    }
+    .shadow{
+        padding-top: 80px;
+        height: 7px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+}

@@ -1,0 +1,85 @@
+<header [ngStyle]="{ 'background-image': 'url(' + haveImg + details.poster_path + ')'}" class="vh-100 hero-area-bg" id="hero-area">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+  <div class="col-md-4 ">
+    <div class="leftDiv pt-5">
+      <img [src]="haveImg + details.poster_path" alt="" />
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="text-content pt-5">
+      <h4>
+        {{ details.original_title || details.name }}
+        <span class="ms-5"
+          >(<span class="text-warning">{{ details.original_language }}</span
+          >)</span
+        >
+      </h4>
+      <p  class="pt-2 text-secondary">{{details.first_air_date|date}}</p>
+      <p class="pt-2 text-secondary">
+        {{ details.overview | omar : show
+        }}<button
+          class="border-0 bg-transparent fw-bold fs-6 text-secondary"
+          (click)="showMore()"
+        >
+          {{ show ? "show more" : "show less" }}
+        </button>
+      </p>
+      <span class="text-secondary">{{ details.release_date | date }}</span>
+      <div class="d-flex" *ngIf="details.genres && details.genres.length > 0">
+        <div *ngFor="let g of details.genres">
+          <p class="me-2 text-warning">{{ g.name }}</p>
+        </div>
+      </div>
+      <ul class="mt-3 list-unstyled">
+        <li>
+          Popularity:
+          <span class="text-secondary" style="font-size: 13px">{{
+            details.popularity
+          }}</span>
+        </li>
+        <li>
+          Vote:
+          <span class="text-secondary" style="font-size: 13px">
+            {{ details.vote_average }}</span
+          >
+        </li>
+        <li>
+          Vote count:
+          <span class="text-secondary" style="font-size: 13px">{{
+            details.popularity
+          }}</span>
+        </li>
+      </ul>
+      <h6  style="color: dc3545;">Networks: </h6>
+      <div
+        class="d-flex"
+        *ngIf="details.networks && details.networks.length > 0 && details.networks.length < 5"
+      >
+        <div *ngFor="let network of details.networks">
+          <ul class="hello">
+            <li>
+              <p class="m-0 p-0">{{ network.name}}</p>
+            </li>
+            <li>
+              <p class="m-0 p-0">{{ network.origin_country}}</p>
+            </li>
+          </ul>
+          <div  class="d-flex">
+            <img class="w-25 overflow-hidden" [src]="haveImg + network.logo_path" alt="logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loadingTemplate>
+  <h1
+    class="text-center text-white py-2 d-flex align-items-center justify-content-center"
+  >
+    <i class="fa-solid fa-spinner fa-spin fa-xl"></i>
+  </h1>
+</ng-template>
+</div>
+</header>
