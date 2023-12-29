@@ -20,6 +20,7 @@ import { SerchPipe } from './serch.pipe';
 import { TvSerchPipe } from './tv-serch.pipe';
 import{BrowserAnimationsModule}from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { WatchListComponent } from './watch-list/watch-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     OmarPipe,
     SerchPipe,
     TvSerchPipe,
+    WatchListComponent,
   ],
   imports: [
     BrowserModule,

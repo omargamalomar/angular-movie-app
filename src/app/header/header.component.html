@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark ">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="">Noxe</a>
+    <a *ngIf="isLogin" class="navbar-brand" routerLink="">
+      <img src="../../assets/images/hhh.png" class="img-header" alt="">
+    </a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
+      data-bs-target="#navbarSupportedCMovies TimeZontent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"

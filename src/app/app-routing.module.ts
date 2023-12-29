@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { authGuard } from './auth.guard';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { ProfileComponent } from './setting/profile/profile.component';
+import { WatchListComponent } from './watch-list/watch-list.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:"movies",canActivate:[authGuard], component:MoviesComponent},
   {path:"tv",canActivate:[authGuard], component:TvComponent},
   {path:"people", canActivate:[authGuard],component:PeopleComponent},
+  {path:"watchlist", canActivate:[authGuard],component:WatchListComponent},
   {path:"profile", canActivate:[authGuard],component:ProfileComponent},
   {path:"setting", loadChildren:()=>import('./setting/setting.module').then((x)=> x.SettingModule)},
   {path:"movieDetails/:id/:media_type", canActivate:[authGuard],component:MovieDetailsComponent},
