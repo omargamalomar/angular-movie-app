@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-wrap">
+      <div  *ngFor="let movie of watchList.getItems()">
+        <div class="div-card ">
+          <div class="movie m-2">
+            <a
+              [routerLink]="['/movieDetails', movie.id, movie.media_type]"
+              class="nav-link"
+            >
+              <div class="done">
+                <img class="" [src]="haveImg + movie.poster_path" alt="" />
+                <h3 class="h6 mt-2">{{ movie.title }}</h3>
+              </div>
+            </a>
+            <button (click)="deleteFromCart(movie)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+

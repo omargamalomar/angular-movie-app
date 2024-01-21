@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { WatchListService } from '../watch-list.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,6 @@ export class HomeComponent {
   getPeople: any[] = [];
   getTV: any[] = [];
   show: boolean = true;
-
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -37,7 +37,7 @@ export class HomeComponent {
     },
     nav: true,
   };
-  constructor(private _MoviesService: MoviesService) {}
+  constructor(private _MoviesService: MoviesService, private _watchList:WatchListService) {}
   ngOnInit() {
     this._MoviesService.getAllMovies().subscribe((res) => {
       this.getMovies = res.results.slice(0, 10);
@@ -59,5 +59,8 @@ export class HomeComponent {
   }
   showMore() {
     this.show = !this.show;
+  }
+  add(movie:any){
+    this._watchList.add(movie)
   }
 }
