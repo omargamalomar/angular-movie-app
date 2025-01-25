@@ -17,7 +17,7 @@ export class LoginComponent {
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null, [
       Validators.required,
-      Validators.pattern('^[A-Z][a-z]{3,8}'),
+      // Validators.pattern('^[A-Z][a-z]{3,8}'),
     ]),
   });
   submitRegisterForm(loginForm: FormGroup) {
