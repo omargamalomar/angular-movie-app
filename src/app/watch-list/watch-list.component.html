@@ -1,8 +1,16 @@
 <div class="container">
-  <div class="row">
-    <div class="d-flex flex-wrap">
-      <div  *ngFor="let movie of watchList.getItems()">
-        <div class="div-card ">
+  <div
+    class="h-100 mb-5 d-flex justify-content-center"
+    *ngIf="watchListItems.length === 0"
+  >
+    <span class="fw-bolder fs-1 mt-5 d-block" style="color: #ddd"
+      >Your watch list is empty</span
+    >
+  </div>
+  <div class="row" *ngIf="watchList">
+    <div class="d-flex flex-wrap vv">
+      <div *ngFor="let movie of watchList.getItems()">
+        <div class="div-card">
           <div class="movie m-2">
             <a
               [routerLink]="['/movieDetails', movie.id, movie.media_type]"
@@ -10,14 +18,15 @@
             >
               <div class="done">
                 <img class="" [src]="haveImg + movie.poster_path" alt="" />
-                <h3 class="h6 mt-2">{{ movie.title }}</h3>
+                <h3 class="h6 mt-2 text-center">{{ movie.title }}</h3>
               </div>
             </a>
-            <button (click)="deleteFromCart(movie)" class="btn btn-danger">Delete</button>
+            <button (click)="deleteFromCart(movie)" class="btn btn-danger d-block mx-auto">
+              Delete
+            </button>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
-

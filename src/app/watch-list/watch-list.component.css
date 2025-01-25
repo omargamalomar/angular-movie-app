@@ -1,3 +1,9 @@
 .done img{
     width: 200px;
 }
+@media (max-width:787px) {
+    .vv{
+        justify-content: center;
+        align-items: center;
+    }
+}

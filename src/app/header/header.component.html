@@ -4,16 +4,16 @@
       <img src="../../assets/images/hhh.png" class="img-header" alt="">
     </a>
     <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedCMovies TimeZontent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -28,17 +28,15 @@
         <li class="nav-item">
           <a  *ngIf="isLogin" class="nav-link "  routerLink="movies">Movies</a>
         </li>
-        <li class="nav-item">
-          <a  *ngIf="isLogin" class="nav-link "  routerLink="watchlist">Watch list</a>
-        </li>
+
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item text-white d-flex align-items-center">
+        <!-- <li class="nav-item text-white d-flex align-items-center">
           <i class="fa-brands fa-facebook mx-2"></i>
           <i class="fa-brands fa-instagram mx-2"></i>
           <i class="fa-brands fa-youtube mx-2"></i>
           <i class="fa-brands fa-soundcloud mx-2"></i>
-        </li>
+        </li> -->
         <!-- <li class="nav-item">
           <span class="text-white" *ngIf="isLogin">Hello{{userInfo.getValue().email}}</span>
         </li> -->
@@ -46,9 +44,10 @@
           <a *ngIf="!isLogin" class="nav-link "  routerLink="login">Login</a>
         </li>
         <li *ngIf="isLogin" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Setting
-          </a>
+          <li class="nav-item">
+            <a  *ngIf="isLogin" class="nav-link "  routerLink="watchlist">Watch list <span style="color: #ddd; font-weight: bold;">{{ watchListCount }}</span></a>
+      
+          
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="profile">Profile</a></li>
           </ul>

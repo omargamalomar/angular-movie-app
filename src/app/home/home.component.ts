@@ -23,7 +23,7 @@ export class HomeComponent {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1,
+        items: 4,
       },
       400: {
         items: 5,
