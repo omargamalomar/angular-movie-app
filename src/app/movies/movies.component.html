@@ -16,7 +16,7 @@
     </div>
   </div>
   <div *ngFor="let movie of getMovies| serch: trem" class="col-md-2">
-    <div class="movie m-2">
+    <div class="movie position-relative m-2">
       <a
         [routerLink]="['/movieDetails', movie.id, movie.media_type||'movie']"
         class="nav-link"
@@ -24,6 +24,9 @@
         <img class="w-100" [src]="haveImg + movie.poster_path" alt="" />
         <h3 class="h6 text-center mt-2">{{ movie.title }}</h3>
       </a>
+      <div class="addd">
+        <button class="btn btn-success d-block mx-auto" (click)="add(movie)">Add</button>
+      </div>
     </div>
   </div>
 </div>

@@ -60,7 +60,7 @@ export class HomeComponent {
   showMore() {
     this.show = !this.show;
   }
-  add(movie:any){
-    this._watchList.add(movie)
-  }
+  // add(movie:any){
+  //   this._watchList.add(movie)
+  // }
 }
